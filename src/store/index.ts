@@ -7,15 +7,10 @@ export const useProductStore = create<ProductStore>((set, get) => ({
         const { product } = get();
 
         const newProduct = {
-            id: products.id,
-            name: products.name,
-            price: products.price,
-            rating: products.rating,
-            img: products.img,
-            class: products.class
+            ...products
         }
-
-        set({
+        const wasBorn = product.find(item => item.id == newProduct.id)
+        !wasBorn && set({
             product: [newProduct].concat(product),
         })
     },
