@@ -1,0 +1,44 @@
+.busket{
+    min-height: 612px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment{
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 350px;
+    height: 114px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px 0px #0000001A;
+}
+
+.payment button{
+    box-sizing: border-box;
+    width: 350px;
+    height: 65px;
+    border-radius: 20px;
+    background-color: #101010;
+    color: #fff;
+    box-shadow: 0px 0px 20px 0px #00000040;
+    font-weight: 600;
+    font-size: 17px;
+    border: none;
+}
+
+.payment button:hover{
+    transform: scale(1.01);
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.price{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 0 20px;
+}
+
+.price p{
+    font-weight: 600;
+    font-size: 15px;
+}
