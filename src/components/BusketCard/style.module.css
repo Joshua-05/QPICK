@@ -13,6 +13,7 @@
 .container{
     display: flex;
     align-items: center;
+    height: 150px;
 }
 
 .container button{
@@ -44,6 +45,7 @@
 .containerBottom{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .count{

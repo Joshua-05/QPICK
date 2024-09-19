@@ -71,7 +71,7 @@ export const productList : IProduct[] = [
         name: "BOROFONE BO4",
         price: 7527,
         rating: 4.7,
-        img: "../../public/Image (5).png",
+        img: "../../public/Image.svg",
         class: "unAirPods"
     }
 ]
