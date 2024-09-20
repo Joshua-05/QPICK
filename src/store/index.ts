@@ -8,9 +8,10 @@ export const useProductStore = create<ProductStore>()(persist((set, get) => ({
         const { product } = get();
 
         const newProduct = {
-            ...products
+            ...products,
         }
-        const wasBorn = product.find(item => item.id == newProduct.id)
+        const wasBorn = product.find(item => item.id == products.id)
+        
         !wasBorn && set({
             product: [newProduct, ...product],
         })

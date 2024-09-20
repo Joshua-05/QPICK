@@ -6,7 +6,7 @@ export interface IProduct {
     oldPrice?: number,
     rating: number,
     img: string,
-    class: string
+    class: string,
 }
 
 export interface ProductProps{

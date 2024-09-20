@@ -10,8 +10,8 @@ const BusketCard : FC<IPropsBusket> = (props: IPropsBusket)  => {
 
     const product = props.product
     const yyy = props.yyy
-    const idStore = useProductStore(state => state.removeProduct)
-
+    const deleteStore = useProductStore(state => state.removeProduct)
+    
     const [count, setCount] = useState(1)
     const [allCount, setAllCount] = useState(product.price)
 
@@ -36,7 +36,7 @@ const BusketCard : FC<IPropsBusket> = (props: IPropsBusket)  => {
                     <span>{product.price} ₽</span>
                 </div>
                 <button onClick={() => {
-                    idStore(product.id),
+                    deleteStore(product.id),
                     yyy(allCount, 'allDescrement')
                 }}><img src={trash} alt="" /></button>
             </div>

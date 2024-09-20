@@ -18,7 +18,7 @@ export default function BusketPage(){
                 return setPrice(price + productPrice)
             }
             case "allDescrement": {
-                return setPrice(price - productPrice)
+                return setPrice(price -  productPrice)
             }
         }
     }
