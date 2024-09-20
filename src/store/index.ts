@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import { ProductStore } from "../types";
+import { persist } from "zustand/middleware";
 
-export const useProductStore = create<ProductStore>((set, get) => ({
+export const useProductStore = create<ProductStore>()(persist((set, get) => ({
     product: [],
     addProduct: (products) => {
         const { product } = get();
@@ -11,7 +12,7 @@ export const useProductStore = create<ProductStore>((set, get) => ({
         }
         const wasBorn = product.find(item => item.id == newProduct.id)
         !wasBorn && set({
-            product: [newProduct].concat(product),
+            product: [newProduct, ...product],
         })
     },
     removeProduct: (id : number) => {
@@ -21,4 +22,7 @@ export const useProductStore = create<ProductStore>((set, get) => ({
             product: product.filter(item => item.id !== id),
         })
     }
+}), {
+    name: 'ProductStore', 
+    version: 1
 }))
