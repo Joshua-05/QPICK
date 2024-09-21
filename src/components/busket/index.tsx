@@ -6,12 +6,8 @@ import { useState } from "react"
 
 export default function BusketPage(){
     const productStore = useProductStore(state => state.productAll)
-    const t = productStore.map(item => item.price * item.counter).reduce((acc, number) => acc + number, 0);
-    const [price, setPrice] = useState(t)
-
-
-    
-
+    const totalPrice = productStore.map(item => item.price * item.counter).reduce((acc, number) => acc + number, 0);
+    const [price, setPrice] = useState(totalPrice)
 
     const yyy = (productPrice: number, action: string) => {
         switch (action) {

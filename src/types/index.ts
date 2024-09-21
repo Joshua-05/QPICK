@@ -1,4 +1,3 @@
-
 export interface IProduct {
     id: number,
     name: string,
@@ -19,10 +18,6 @@ export interface IPropsBusket{
     product: IProductStore
 }
 
-// export interface IProductStore{
-//     product: IProduct
-//     counter: number
-// }
 export interface IProductStore{
     id: number,
     name: string,
