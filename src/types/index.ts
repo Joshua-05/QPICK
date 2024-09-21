@@ -32,5 +32,6 @@ export interface IProductStore{
 export interface ProductStore{
     productAll: IProductStore[],
     addProduct: (product : IProduct) => void,
-    removeProduct: (id: number) => void
+    removeProduct: (id: number) => void,
+    updateCounter: (id: number, sym: string) => void
 }

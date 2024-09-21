@@ -11,6 +11,7 @@ const BusketCard : FC<IPropsBusket> = (props: IPropsBusket)  => {
     const product = props.product
     const yyy = props.yyy
     const deleteStore = useProductStore(state => state.removeProduct)
+    const update = useProductStore(state => state.updateCounter)
 
     const [count, setCount] = useState(product.counter)
     const [allCount, setAllCount] = useState(product.price * product.counter)
@@ -18,12 +19,14 @@ const BusketCard : FC<IPropsBusket> = (props: IPropsBusket)  => {
     const descrement = () => {
         setAllCount(allCount - product.price)
         setCount(count - 1)
+        update(product.id, '-')
         yyy(product.price, 'descrement')
     }
 
     const increment = () => {
         setAllCount(allCount + product.price)
         setCount(count + 1)
+        update(product.id, '+')
         yyy(product.price, 'increment')
     }
 

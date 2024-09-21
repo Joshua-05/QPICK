@@ -22,6 +22,17 @@ export const useProductStore = create<ProductStore>()(persist((set, get) => ({
         set({
             productAll: productAll.filter(item => item.id !== id),
         })
+    },
+    updateCounter: (id : number, sym: string) => {
+        const { productAll } = get();
+        const newProduct = sym === '-' ?
+            productAll.map(i => i.id === id ? 
+                {...i, counter: i.counter - 1} : i)
+            : productAll.map(i => i.id === id ? 
+                {...i, counter: i.counter + 1} : i)
+        set({
+            productAll: newProduct
+        })        
     }
 }), {
     name: 'ProductStore', 
