@@ -5,9 +5,13 @@ import { useProductStore } from "../../store"
 import { useState } from "react"
 
 export default function BusketPage(){
-    const productStore = useProductStore(state => state.product)
-    const t = productStore.map(item => item.price).reduce((acc, number) => acc + number, 0);
+    const productStore = useProductStore(state => state.productAll)
+    const t = productStore.map(item => item.price * item.counter).reduce((acc, number) => acc + number, 0);
     const [price, setPrice] = useState(t)
+
+
+    
+
 
     const yyy = (productPrice: number, action: string) => {
         switch (action) {
@@ -31,11 +35,14 @@ export default function BusketPage(){
                         {productStore[0] ? productStore.map(product => <BusketCard product={product} yyy={yyy} key={product.id} />) : "Нет добавленных товаров"}
                     </div>
                     <div className={style.payment}>
-                        <div className={style.price}>
-                            <p>ИТОГО</p>
-                            <p>₽ {price}</p>
+                        <div className={style.itog}>
+                            <div className={style.price}>
+                                <p>ИТОГО</p>
+                                <p>₽ {price}</p>
+                            </div>
+                            <button>Перейти к оформлению</button>
                         </div>
-                        <button>Перейти к оформлению</button>
+                        
                     </div>
                 </div>
             <Footer />

@@ -11,13 +11,13 @@ const BusketCard : FC<IPropsBusket> = (props: IPropsBusket)  => {
     const product = props.product
     const yyy = props.yyy
     const deleteStore = useProductStore(state => state.removeProduct)
-    
-    const [count, setCount] = useState(1)
-    const [allCount, setAllCount] = useState(product.price)
+
+    const [count, setCount] = useState(product.counter)
+    const [allCount, setAllCount] = useState(product.price * product.counter)
 
     const descrement = () => {
         setAllCount(allCount - product.price)
-        setCount(count-1)
+        setCount(count - 1)
         yyy(product.price, 'descrement')
     }
 
@@ -36,14 +36,14 @@ const BusketCard : FC<IPropsBusket> = (props: IPropsBusket)  => {
                     <span>{product.price} ₽</span>
                 </div>
                 <button onClick={() => {
-                    deleteStore(product.id),
-                    yyy(allCount, 'allDescrement')
+                    yyy(allCount, 'allDescrement'),
+                    deleteStore(product.id)
                 }}><img src={trash} alt="" /></button>
             </div>
             <div className={style.containerBottom}>
                 <div className={style.count}>
                     <button onClick={() => {
-                        count == 1 ? null : descrement()
+                         count > 1 && descrement()
                         }}>
                         <img src={minus} alt="" />
                     </button>

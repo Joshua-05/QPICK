@@ -6,7 +6,7 @@ export interface IProduct {
     oldPrice?: number,
     rating: number,
     img: string,
-    class: string,
+    class: string
 }
 
 export interface ProductProps{
@@ -16,11 +16,26 @@ export interface ProductProps{
 
 export interface IPropsBusket{
     yyy: (productPrice: number, action: string) => void
-    product: IProduct
+    product: IProductStore
+}
+
+// export interface IProductStore{
+//     product: IProduct
+//     counter: number
+// }
+export interface IProductStore{
+    id: number,
+    name: string,
+    price: number,
+    oldPrice?: number,
+    rating: number,
+    img: string,
+    class: string
+    counter: number
 }
 
 export interface ProductStore{
-    product: IProduct[],
+    productAll: IProductStore[],
     addProduct: (product : IProduct) => void,
     removeProduct: (id: number) => void
 }

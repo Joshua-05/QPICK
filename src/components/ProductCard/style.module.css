@@ -46,6 +46,11 @@
     cursor: pointer;
 }
 
+.card button:hover{
+    color: #FFA542;
+    transition: 0.6s;
+}
+
 .price{
     font-weight: 600;
     font-size: 17px;

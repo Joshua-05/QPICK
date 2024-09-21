@@ -2,20 +2,38 @@ header{
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    width: 1110px;
-    height: 60px;
-    padding-top: 15px;
+    width: 1210px;
+    height: 80px;
     margin-top: 0;
+    margin-left: -50px;
+    padding-left: 50px;
+    padding-right: 50px;
     font-size: 25px;
     font-weight: 700;
     align-items: center;
+    position: fixed;
+
+    z-index: 1;
+    
 }
 
-
+header::before{
+    position: absolute;
+    content: '';
+    z-index: -1;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #EAEAEA;
+    opacity: 0.8;
+    filter: blur(3px);
+}
 
 .nav{
     display: flex;
     align-items: center;
+    
 }
 
 .nav img{
@@ -53,6 +71,7 @@ a{
 
 .likesImg:hover, .busketImg:hover {
     transform: scale(1.2);
+    cursor: pointer;
 }
 
 

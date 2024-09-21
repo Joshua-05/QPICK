@@ -9,15 +9,18 @@ import { Link } from "react-router-dom"
 import { useProductStore } from "../../store"
 
 export function Header() {
-    const productStore = useProductStore(state => state.product)
+    const productStore = useProductStore(state => state.productAll)
     return(
         <header>
             <div className={style.logo}><Link to={"/"}>QPICK</Link></div>
             <div className={style.nav}>
-                <img className={style.likesImg} src={likes} alt="" />
+                <div className={style.busketImg}>
+                    <img  src={likes} alt="" />
+                    <div className={style.counter}>12</div>
+                </div>
                 <div className={style.busketImg}>
                     <Link to={"/busket"}><img src={busket} alt="" /></Link>
-                    {productStore.length !== 0 && <div className={style.counter}>{productStore.length}</div>}
+                    {productStore.length !== 0 && <div className={style.counter}>{productStore.reduce((acc,num) => acc + num.counter,0)}</div>}
                 </div>
             </div>
         </header>
